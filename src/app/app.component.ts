@@ -1,6 +1,7 @@
+// src\app\app.component.ts
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NbLayoutModule, NbLayoutHeaderComponent, NbLayoutColumnComponent, NbLayoutFooterComponent, NbSidebarModule, NbMenuModule } from '@nebular/theme';
+import { NbLayoutModule, NbSidebarModule, NbMenuModule } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
