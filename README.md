@@ -92,7 +92,6 @@ export const environment = {
 ## 📅 Funcionalidades del calendario
 
 - Visualización de reservas existentes
-- Navegación por mes, semana y día
 - Integración con API para carga dinámica de eventos
 - Estilos personalizados con Nebular
 
@@ -100,13 +99,14 @@ export const environment = {
 
 ## ✅ Estado del proyecto
 
-✅ CRUD de reservas integrado  
+✅ Reservas integrada.  
 ✅ Validaciones API y frontend  
 ✅ Listado compacto de reservas  
 ✅ Integración con calendario  
 ✅ Integración de MercadoPago  
 🔜 Sistema de usuarios y roles  
 🔜 Mejoras de UI/UX y accesibilidad
+🔜 Mejoras de funcionalidades para el calendario.
 
 ---
 
