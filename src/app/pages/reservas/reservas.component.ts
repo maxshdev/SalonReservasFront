@@ -94,6 +94,15 @@ import { CalendarEvent, CalendarModule } from 'angular-calendar';
           </nb-card-body>
         </nb-card>
 
+        <div class="mt-3">
+          <button nbButton status="success" type="button" (click)="abrirMPBrick()">
+            Realizar Pre Reserva con MP
+          </button>
+
+          <!-- Contenedor del Brick -->
+          <div id="paymentBrick_container" style="margin-top: 20px;"></div>
+        </div>
+
       </nb-layout-column>
     </nb-layout>
   `,
@@ -216,6 +225,50 @@ export class ReservasComponent implements OnInit {
           error: err => this.toastr.danger(err.error || 'Error creando la reserva')
         });
     }
-}
+  }
+
+  abrirMPBrick() {
+    // Token público de prueba (reemplazar con el real desde MercadoPago)
+    const mp = new (window as any).MercadoPago('TU_PUBLIC_KEY', {
+      locale: 'es-AR'
+    });
+
+    const bricksBuilder = mp.bricks();
+
+    // Si querés que se regenere cada vez que abran el brick
+    const container = document.getElementById('paymentBrick_container');
+    if (container) container.innerHTML = '';
+
+    bricksBuilder.create('payment', 'paymentBrick_container', {
+      initialization: {
+        amount: 1000, // Monto de la pre reserva
+      },
+      customization: {
+        paymentMethods: {
+          creditCard: 'all',
+          debitCard: 'all',
+          ticket: 'all',
+        }
+      },
+      callbacks: {
+        onReady: () => {
+          console.log('Brick listo');
+        },
+        onSubmit: async (cardFormData: any) => {
+          // Aquí deberías llamar a tu backend para generar el pago
+          console.log('Datos de pago:', cardFormData);
+          return new Promise<void>((resolve) => {
+            this.toastr.success('Pago enviado a MercadoPago');
+            resolve();
+          });
+        },
+        onError: (error: any) => {
+          console.error(error);
+          this.toastr.danger('Error al procesar el pago');
+        }
+      }
+    });
+  }
+
 
 }
