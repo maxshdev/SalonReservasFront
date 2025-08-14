@@ -1,59 +1,121 @@
-# SalonReservasFront
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+<img src="https://github.com/user-attachments/assets/07b3ff93-2118-4bfc-b0a0-ca24334b9080" width=120> <br>
+[@maxshtefec](https://www.linkedin.com/in/maxshtefec/) :+1: Es el creador y donador de este fabuloso repositorio!
 
-## Development server
+# Frontend de Gestión de Salones de Cumpleaños 🎉
 
-To start a local development server, run:
+Este proyecto es la **interfaz frontend** del desafío técnico de gestión de reservas de salones para cumpleaños.  
+Desarrollado en **Angular 19** con **Nebular** como librería de componentes, integración de **MercadoPago**, validaciones en tiempo real contra la API y un **calendario interactivo** para la visualización de reservas.
+
+## ✨ Características principales
+
+- Formulario para crear reservas con validaciones reactivas
+- Integración con API REST para obtener y crear reservas
+- Prevención de solapamientos y validaciones horarias vía API
+- Visualización de reservas en un calendario interactivo
+- Listado compacto de reservas del usuario
+- Integración de pago con **MercadoPago**
+- Arquitectura modular, limpia y escalable
+- Uso de **Nebular UI** para una experiencia moderna y consistente
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- Angular 19
+- Nebular UI
+- RxJS
+- MercadoPago SDK
+- Librería de calendario (`angular-calendar` o similar)
+- TypeScript
+- HTML5, SCSS
+
+---
+
+## 🧱 Arquitectura
+
+La aplicación sigue una arquitectura **modular y escalable**, separando responsabilidades en:
+
+- `modules/` → Módulos funcionales como reservas, pagos, calendario
+- `components/` → Componentes reutilizables
+- `services/` → Servicios para comunicación con la API y lógica de negocio
+- `models/` → Definiciones de interfaces y DTOs
+- `pages/` → Páginas de alto nivel para rutas
+- `utils/` → Funciones auxiliares
+
+Principios aplicados:
+- **Separación de responsabilidades**
+- **Reactive programming** con RxJS
+- Buenas prácticas de Angular (OnPush, lazy loading)
+
+---
+
+## 📦 Instalación y ejecución
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/salon-reservas-front.git
+cd salon-reservas-front
+```
+
+### 2. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 3. Ejecutar en modo desarrollo
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación estará disponible en `http://localhost:4200`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🔌 Configuración de API y MercadoPago
 
-```bash
-ng generate component component-name
+En el archivo `environment.ts` configura:
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:5000/api',
+  mercadoPagoPublicKey: 'TU_PUBLIC_KEY'
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📅 Funcionalidades del calendario
 
-## Building
+- Visualización de reservas existentes
+- Navegación por mes, semana y día
+- Integración con API para carga dinámica de eventos
+- Estilos personalizados con Nebular
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## ✅ Estado del proyecto
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ CRUD de reservas integrado  
+✅ Validaciones API y frontend  
+✅ Listado compacto de reservas  
+✅ Integración con calendario  
+✅ Integración de MercadoPago  
+🔜 Sistema de usuarios y roles  
+🔜 Mejoras de UI/UX y accesibilidad
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 💬 Autor
 
-```bash
-ng test
-```
+Desarrollado como parte de un desafío técnico. Se aplicaron buenas prácticas de desarrollo frontend, modularización y optimización de performance en Angular.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📝 Licencia
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto es de uso libre con fines educativos y demostrativos.
